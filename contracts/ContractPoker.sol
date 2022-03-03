@@ -97,22 +97,11 @@ contract ContractPoker {
             );
         } else {
             router.swapTokensForExactETH(
-                fee,
+                fee * _profitMargin / 100,
                 rewardInRewardToken,
                 path,
                 address(this),
                 block.timestamp
-            );
-
-            uint256 postSwapBalance = IERC20(_rewardToken).balanceOf(
-                address(this)
-            );
-
-            uint256 feeInRewardToken = postBalance - postSwapBalance;
-
-            require(
-                rewardInRewardToken >= (feeInRewardToken * _profitMargin) / 100,
-                "ContractPoker: !swapAll not profitable"
             );
         }
 
