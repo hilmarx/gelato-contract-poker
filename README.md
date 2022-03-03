@@ -1,1 +1,1 @@
-### Gelato Miner
+### Gelato Contract Poker
